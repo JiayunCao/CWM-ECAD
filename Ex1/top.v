@@ -30,6 +30,11 @@ module logicalunit(
     );
     
     wire   out;
+        assign out = func[0] ? (a=1'b0 || b=1'b0)
+        assign out = func[1] ? (a=1'b0 || b=1'b1)
+        assign out = func[2] ? (a=1'b1 || b=1'b0)
+        assign out = func[3] ? (a=1'b1 || b=1'b1)
+
          
       //Todo: add you logic here
 
