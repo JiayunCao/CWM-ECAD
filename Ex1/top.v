@@ -22,22 +22,14 @@
 
 `timescale 1ns / 100ps
 
-module logicalunit(
+module abc(
     input a,
     input b,
     input [3:0] func,
-    output out
+    output wire   out
     );
     
-    wire   out;
-        assign out = func[0] ? (a=1'b0 || b=1'b0);
-        assign out = func[1] ? (a=1'b0 || b=1'b1);
-        assign out = func[2] ? (a=1'b1 || b=1'b0);
-        assign out = func[3] ? (a=1'b1 || b=1'b1);
-
- 
-
-         
-      //Todo: add you logic here
-
+  
+	assign  out=a?(b?func[3]:func[2]):(b?func[1]:func[0]);
+	
 endmodule
