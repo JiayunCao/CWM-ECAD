@@ -18,22 +18,16 @@
 //           out
 //////////////////////////////////////////////////////////////////////////////////
 
+
 `timescale 1ns / 100ps
 
 module mux(
-    input a,
-
-    input b,
-
-    input sel,
-
-    output out
-  
+    //Todo: define inputs here	
+	a, b, sel, out
     );
-    reg reg1
-    wire   out
+	input a, b, sel;
+	output  out;
 
-
-    //Todo: define your logic here                 
+	assign #5 out = sel ? b : a;
       
 endmodule
