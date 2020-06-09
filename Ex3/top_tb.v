@@ -13,16 +13,54 @@
 module top_tb(
     );
     
-//Todo: Parameters
 
-//Todo: Regitsers and wires
+`timescale 1ns/1ns
 
-//Todo: Clock generation
+`define clk_t 20
+module counter_tb;
 
-//Todo: User logic
-    
-//Todo: Finish test, check for success
 
-//Todo: Instantiate counter module
+reg   clk,rst;
+reg   enable;
+reg   direction;
+
+wire  [7:0]counter_out;
+
+
+counter u1(
+                     .clk(clk),
+					 .rst(rst),
+					 .enable(enable),
+					 .direction(direction),
+					 
+					 .counter_out(counter_out)
+					
+              );
+
+				  				 
+initial
+begin
+
+  rst=0;
+  clk=1;
+  enable=1'b1;
+  direction=1'b1;
+ #(`clk_t*10);
+  rst=1;
+
+
+ #(`clk_t*40);
+ enable=0;
+ #(`clk_t*40);
+ //enable=1;
+ #(`clk_t*40);
+ direction=1'b0;
+ 
+
+end
+ 
+always #(`clk_t/2) clk=~clk;
+
+endmodule
  
 endmodule 
