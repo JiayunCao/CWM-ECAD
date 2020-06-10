@@ -1,0 +1,15 @@
+module test6(
+          input    [2:0]  throw,
+			 input          red,
+	       input          amber,
+          input          green,
+			 input          sel,
+			
+		    output   [2:0] result	
+        );
+
+
+		  
+assign  result =  sel ? throw : {red,amber,green} ;  
+
+endmodule
